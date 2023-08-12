@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 主题1：黑底白字 */
+        .theme1{
+            background-color: black;
+            color: white;
+        }
+
+        /* 主题2：粉底绿字 */
+        .theme2{
+             background-color: pink;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.点击按钮，将奇数列的li背景色设置为红色，偶数列li背景色设置为绿色
+    2.通过在页面上点击button，实现主题切换
+    主题1：黑底白字
+    主题2：粉底绿字
+    -->
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+        <li>06</li>
+        <li>07</li>
+        <li>08</li>
+        <li>09</li>
+        <li>10</li>
+    </ol>
+    <button id="switch" onclick="fun1(theme)">切换主题</button>
+    
+    <script>
+        var list =document.querySelectorAll("li");
+        var theme = false;  
+
+
+        function fun1(boolean1){
+            if(boolean1 == false){
+                for(var i = 0; i < 10; i++){
+                    if(i%2!=0){
+                        list[i].setAttribute("class","theme1");
+                    }else{
+                        list[i].setAttribute("class","theme2");
+                    }
+                }
+                boolean1 = true;
+                theme = true;
+             }else{
+                for(var i = 0; i < 10; i++){
+                    if(i%2!=0){
+                        list[i].setAttribute("class","theme2");
+                    }else{
+                        list[i].setAttribute("class","theme1");
+                    }
+                }
+                boolean1 = false;
+                theme =false;
+            }
+            return boolean1;    
+        }
+    </script>
+</body>
+</html>

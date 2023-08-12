@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 5.	把数字12345反转成54321 -->
+	<div id = result>
+	</div>
+	<script>
+		// 获取div
+		var result = document.getElementById("result");
+		//改变内容
+		result.innerHTML = "123";
+		result.setAttribute("class","theme1");
+
+
+		document.getElementById();//获取一个对象
+		document.getElementsByTagName();//获取一组对象
+		document.getElementsByName();//获取一组对象
+		document.getElementsByClassName();//获取一组对象
+
+		for(初始化;循环条件;每次循环后的操作){循环体}
+
+	</script>
+
+
+		function fun1(str1){
+			var arr = str1.split("");
+			var arr2 = [];
+			var j = 0;
+			for(var i = arr.length - 1; i >= 0; i--){
+				arr2[j] = arr[i];
+				j++;
+
+			}
+			var StrValue = arr2.join("");
+			return StrValue;
+		}
+
+	function fun1(){
+		var str1 = "54321";
+		var arr1 = str1.split("");
+		var arr2 = [];
+		var j = 0;
+		for(var i = arr1.length - 1; i >= 0; i--){
+			arr2[j] = arr1[i];
+			j++;
+		}
+		return arr2.join("");
+	}
+
+	function fun2(){
+		var str1 = "54321";
+		var arr1 = str1.split("");
+
+		for(var i = 0; i < arr1.length; i++){
+			for(var j = 0; j < arr1.length - i; j++){
+				if(arr1[j] < arr1[j + 1]){
+					var temp = arr1[j];
+					arr1[j] = arr1[j + 1];
+					arr1[j + 1] = temp;
+				}
+			}
+		}
+
+		return arr1;
+	}
+
+	</script>
+</body>
+</html>
+

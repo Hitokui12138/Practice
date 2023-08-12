@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>基本表单</title>
+    </head>
+    <body>
+        <!-- 按一下按钮就会把表单提交给百度 -->
+        <!-- get方法就是 http://www.baidu.com?UserName=XXX -->
+        <!-- post是用请求报文传值,网络->PayLoad负载 可以看到 -->
+        <form action = "http://www.baidu.com" method = "get">
+            <!-- 1. text:表单域必须有name,没有name不是一个变量无法提交 -->
+            用户名:<input name="UserName" type="text" size="15" maxlength="10" value="admin"><br>
+            密码:<input name="pwd" type="password" size="15" maxlength="10" value="admin"><br>
+
+            <!-- 2. radio单选:用同一个name表示是同一个组,单选按钮注意默认值 -->
+            性别:<input name="sex" type="radio" value="0" checked >男<input name="sex" type="radio" value="1">女<br>
+
+            <!-- 3. checkbox复选: -->
+            爱好:
+            <input type="checkbox" name="hobby" checked value="0">抽烟
+            <input type="checkbox" name="hobby" value="1">喝酒
+            <input type="checkbox" name="hobby" value="2">烫头<br>
+
+            <!-- 4. select下拉框  -->
+            省1:
+            <select name="provice">
+                <option value="1">辽宁省</option>
+                <option value="2">东京都</option>
+                <!-- 用label效果一样 -->
+                <option value="3" label="北海道"></option>
+            </select><br>
+            <!-- 4.1 多选框 按住左键拖动? -->
+            省2:
+            <select name="provice2" multiple>
+                <option value="1">辽宁省</option>
+                <option value="2">东京都</option>
+                <!-- 用label效果一样 -->
+                <option value="3" label="北海道"></option>
+            </select><br>
+
+            <!-- 5. textarea多行入力框  -->
+            备注:
+            <textarea name="remark" rows="10" cols="20">在这里输入多行备考</textarea><br>
+
+            <!-- 6. H5特有的标签 6.1 email 自带验证-->
+            邮箱:<input type="email" name="email"><br>
+            <!-- 6.1 url 各个浏览器的验证还不太一样,兼容性较差 -->
+            网址:<input type="url" name="url"><br>
+            <!-- 6.2 number -->
+            年龄:<input type="number" name="age" min="18" max="70" step="5"><br>
+            <!-- 6.3 range 滑块,进度条, 默认中间是50,这里的step值一般由JS控制-->
+            进度:<input type="range" name="range" step="20"><br>
+            <!-- 6.4 search 最右边应该有个小X用来清除?edge没再现 -->
+            搜索:<input type="search" name="search"><br>
+            <!--  -->
+
+            <!-- button必须写在表单里面,button默认type就是submit,有三种type -->
+            <button>提交</button>
+            <input type="submit" value="也是提交">
+            <input type="reset" value="重置">
+            <button type="button" onclick="alert(ok)">和JS交互时</button>
+            <input type="image" src="./image/login.gif" align="absmiddle"><br><!-- 用图片当按钮,图片和其他部件默认底部对齐 -->
+
+            <!-- 7. 高级应用 -->
+            隐藏域:<input type="hidden" name="HiddenText" value="100"><br><!--隐藏域,不可见,HiddenText,实际上是存在的,可以提交-->
+            只读域:<input type="text" name="ReadOnly" readonly value="只读"><br><!--可提交-->
+            禁用:<input type="text" disabled value="禁用"><!--不可提交-->
+            <button disabled>不能使用这个按钮</button><br>
+
+            <!-- 8. 表单验证 -->
+            <!-- 8.1 placeholder -->
+            带提示的用户名:<input name="UserName" type="text" size="15" maxlength="10" placeholder="请输入用户名"><br>
+            <!-- 8.2 require 也可以用JS来控制输出的提示信息-->
+            必须输入密码:<input name="pwd" type="password" size="15" maxlength="10" required><br>
+            <!-- 8.3 pattern 用正则表达式做验证-->
+            电话:<input type="text" name="tel" required patten="1[358][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"><br>
+            电话2:<input type="text" name="tel2" required patten="1[358]\d{9}"><br>
+        </form>
+    </body>
+</html>

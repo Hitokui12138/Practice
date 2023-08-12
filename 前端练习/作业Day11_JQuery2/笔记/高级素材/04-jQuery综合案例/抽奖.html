@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery案例之抽奖</title>
+    <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+<!-- 小像框 -->
+<div style="border-style:dotted;width:160px;height:100px">
+    <img id="img1ID" src="../img/man00.jpg" style="width:160px;height:100px"/>
+</div>
+
+<!-- 大像框 -->
+<div
+        style="border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px">
+    <img id="img2ID" src="../img/man00.jpg" width="800px" height="500px"/>
+</div>
+
+<!-- 开始按钮 -->
+<input
+        id="startID"
+        type="button"
+        value="点击开始"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStart()">
+
+<!-- 停止按钮 -->
+<input
+        id="stopID"
+        type="button"
+        value="点击停止"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStop()">
+
+
+<script language='javascript' type='text/javascript'>
+    //准备一个一维数组，装用户的像片路径
+    var imgs = [
+        "../img/man00.jpg",
+        "../img/man01.jpg",
+        "../img/man02.jpg",
+        "../img/man03.jpg",
+        "../img/man04.jpg",
+        "../img/man05.jpg",
+        "../img/man06.jpg"
+    ];
+    //不要遍历，做一个随机数
+    // document.write(Math.random() + "<br>");//默认是[0~1)的随机数，取不到1
+    // document.write(parseInt(Math.random()*89 + 10) + "<br>");//[10,99)
+    // //document.write(parseInt(Math.random()*(上限 - 下限) + 下限))
+    document.write(parseInt(Math.random()*7 + 0) + "<br>");//[0,6],因为6也需要取到
+
+    //document.write(Math.round()); 四舍五入
+
+    // $("#stopID").prop("disabled",true);
+
+    //全局定义，let
+    let intervalID;
+    let index;
+    function imgStart(){
+        //每隔多久执行一次 setInterval
+        intervalID = setInterval(function(){
+            index = parseInt(Math.random()*7 + 0);
+            $('#img1ID').prop('src',imgs[index]);
+        },100)
+    }
+    function imgStop(){
+        clearInterval(intervalID);
+        $("#img2ID").hide(1000);
+        $("#img2ID").prop('src',imgs[index]).show(1000);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:300px
+        }
+        .parent{
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            /* 隐藏框外的 */
+            overflow: hidden;
+        }
+        /* 用CSS实现html功能,:伪类,::伪元素 */
+        .parent::after{
+            content: 'GSD';
+            display: block;/*默认是span*/
+            height: 300px;
+            background-color: pink;
+            transform: rotate(180deg);
+            transform-origin: left bottom;
+            transition: all 0.5s;
+        }
+        .parent:hover::after{
+            transform: rotate(0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <!-- before加在这里 -->
+        <span>ABC</span>
+        <!-- after加在这里 -->
+    </div>
+</body>
+</html>

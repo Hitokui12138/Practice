@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+    <script>
+        // 基本，滑动，淡入淡出，自定义，看一下目录
+        function hideFn(){
+            //1. 查看css可知hide的原理是修改width，height，透明度opacity实现的
+            // 左上角的动画
+            //$('#showDiv').hide("normal");//slow,normal,fast
+           // $('#showDiv').hide(2000);//毫秒
+
+           //2. slide动画有点像上下滑动的效果，只修改的高度
+           // $('#showDiv').slideUp(2000);
+
+            // 3. fide动画，只通过修改透明度opacity
+            //$('#showDiv').fadeOut(2000);
+            // 若隐若现 fadeTo,四个参数，其中三个是可选的
+            // speed,opacity(*),easing,fn
+            // $('#showDiv').fadeTo(1000,0.66,'linear',function(){
+            //     alert('fadeTo');
+            // });
+
+            //延迟
+            $('#showDiv').fadeOut(2000).delay(1000).fadeIn(2000);
+
+        }
+        function showFn(){
+            //$('#showDiv').show(2000);
+            //$('#showDiv').slideDown(2000);
+            $('#showDiv').fadeIn(2000);
+        }
+        function toggleFn(){
+            // $('#showDiv').toggle();
+            //$('#showDiv').slideToggle(2000);
+            $('#showDiv').fadeToggle(2000);
+        }
+        function moveFn(){
+            console.log('animate');
+            //自定义动画，animate（param,speed,easing,fn）
+            //不能修改背景颜色
+            $('#showDiv').animate({
+                'marginLeft':'200px',
+                'opacity':'0.6'
+            },2000,function(){
+                $('#showDiv').animate({
+                    'marginTop':'200px',
+                    'opacity':'1'
+            },2000,function(){
+                $('#showDiv').animate({
+                    'marginLeft':'0px',
+                    'opacity':'0.5'
+            },2000,function(){
+                $('#showDiv').animate({
+                    'marginTop':'0px',
+                    'opacity':'1'
+            },2000)
+            })
+            })
+            })
+        }
+        function stopFn(){
+            //是否继续后面的动画，是否立即达到最终位置
+            //$('#showDiv').stop(true, false);
+            $('#showDiv').stop(false, false);
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="点击按钮隐藏div" onclick="hideFn()">
+<input type="button" value="点击按钮显示div" onclick="showFn()">
+<input type="button" value="点击按钮切换div显示和隐藏" onclick="toggleFn()">
+<input type="button" value="移动" onclick="moveFn()">
+<input type="button" value="停止动画" onclick="stopFn()">
+
+<div id="showDiv" style="width:300px;height:300px;background:pink">
+    div显示和隐藏
+</div>
+</body>
+</html>

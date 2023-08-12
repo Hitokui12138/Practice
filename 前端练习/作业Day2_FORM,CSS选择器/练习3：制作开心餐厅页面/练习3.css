@@ -1,0 +1,25 @@
+p{
+    font-size: 14px;
+}
+
+/* 后代选择器 所有后代 */
+body h2{
+    font-size: 16px;
+}
+
+.head1{
+    color: red;
+}
+
+/* 相邻兄弟选择器用+ */
+/* 通用兄弟选择器~ 把第一个h2后面所有h2设为蓝色 */
+.head1~h2{
+    color: blue;
+}
+
+/* 子选择器 ,仅儿子算, 调整第一张图片大小 */
+.p1>img{
+    width: 887px;
+    height: 439px;
+}
+

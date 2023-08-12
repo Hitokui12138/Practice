@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 1.font-family只能更改英文字体 中文不会改变 */
+        /* C:\Windows\Fonts */
+        span{
+            /* 可以写多个字体,从前往后逐一匹配, */
+            /* font-family:'Times New Roman', Times, serif, 微软雅黑; */
+            /* 像素默认是16px */
+            /* font-size: 16px; */
+            /* 相对大小 em:相对于父元素 rem:相对于html 通常在移动端适配时使用*/
+            /* font-size: 2em; */
+            /* 16*2 = 32px */
+            /* 风格默认是normal,如果字体支持倾斜,则italic;不支持可以用强制倾斜oblique */
+            /* font-style: italic; */
+            /* 粗细 light, bold, lighter, bolder*/
+            /* font-weight: light; */
+            /* 粗细也可以用数字表示 light:400, bold:700 100~900 */
+            /* font-weight: 700; */
+            /* 同时记4个属性很麻烦,直接使用font,font必须包含font-size和font-family */
+            
+            /* 按顺序设置 */
+            /* font-style, font-variant, font-weight, font-size, font-family */
+            font: italic bold 50px "隶书";
+        }
+    </style>
+</head>
+<body>
+    <span>html5默认字体是微软雅黑</span>
+
+</body>
+</html>

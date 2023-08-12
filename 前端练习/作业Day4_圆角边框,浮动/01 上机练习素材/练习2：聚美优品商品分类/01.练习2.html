@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>商品分类</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .parent{
+            width: 300px;
+            margin: 5px;
+            background-color: #fff;
+        }
+        h3{
+            margin: 0;
+            /* border: 1px solid red; */
+            height: 32px;
+            line-height: 32px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16px;
+        }
+        dl{
+            margin: 0;
+            /* border: 1px solid red; */
+        }
+        dl:last-of-type{
+            border-bottom: none;
+        }
+        dt{
+            font-weight: 700;
+            padding-left: 30px;
+            background: url(./图片素材/icon_01.gif) no-repeat;
+        }
+
+        dd{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h3>全部分类</h3>
+        <dl>
+            <dt>护肤</dt>
+            <dd>
+                <span>洁面</span> <span>化妆水</span> <span>喷雾</span> <span>美容液</span> <span>眼霜</span><br>
+                <span>眼部精华</span> <span>眼膜</span> <span>面膜</span> <span>面膜贴</span>
+            </dd>
+
+            <dt>彩妆</dt>
+            <dd>
+                <span>卸妆</span> <span>防晒</span> <span>隔离</span> <span>BB霜</span> <span>粉底</span> <span>粉饼</span><br>
+                <span>睫毛膏</span> <span>眼影</span> <span>唇彩</span> <span>腮红</span> <span>眼线笔</span>
+            </dd>
+        </dl>
+
+    </div>
+</body>
+</html>

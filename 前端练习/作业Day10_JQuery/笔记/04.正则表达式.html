@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 为了验证,给这个form注册一个事件 -->
+    <!-- onsubmit为true时才会提交,注意写法 -->
+    <form action="" id="form" onsubmit="return check()">
+        用户名: <input name="username" id="username"><span id="userMSG"></span><br>
+        年龄: <input name="age" id="age"><br>
+        <button type="submit">提交</button>
+    </form>
+
+
+    <script>
+        // 1. 正则表达式
+        let re1 = new RegExp("abc");//默认是模糊匹配
+        document.write(re1.test("43abc12")+"<br>");//true
+        // 1.1 简写
+        re2 = /abc/;
+        document.write(re2.test("43abc12")+"<br>");//true
+        // 1.2 精确匹配
+        re2 = /^abc$/;
+        document.write(re2.test("43abc12")+"<br>");//false
+        // 1.3 电话号码
+        // [0-9] === \d
+        // [a-zA-Z0-9] === \w
+        // \d{8} 前面的数字有8个
+        // \d{m,n} \d{m,} \d{,n}前面的数字至少m个,至多n个
+
+        re2 = /^1[a-zA-Z0-9][0-9]\d{8}$/;
+        document.write(re2.test("18916485423")+"<br>");//true
+
+
+        //页面加载出来后,立即聚焦于用户名
+        document.getElementById("username").focus();
+        //让用户名失去焦点后立即做一次验证
+        document.getElementById("username").onblur = checkUserName;
+
+        // 按下sumbit后,所有验证是否都通过
+        function check(){
+            return checkUserName();
+        }
+
+        function checkUserName(){
+            let regUser = /^\w{3,5}$/;
+            let username = document.getElementById("username").value;
+            if(username.length==0){
+                document.getElementById("userMSG").innerHTML = "用户名不能为空";
+                return false;
+            }else if(!regUser.test(username)){
+                document.getElementById("userMSG").innerHTML = "用户名长度为3~5位";
+                return false;
+            }else{
+                document.getElementById("userMSG").innerHTML = "合法";
+                return true;
+            }
+            return false;
+        }
+
+
+
+    </script>
+</body>
+</html>

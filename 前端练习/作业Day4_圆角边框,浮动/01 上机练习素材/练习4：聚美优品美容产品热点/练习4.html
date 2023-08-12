@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美容热点产品</title>
+    <style>
+        body{
+            background-color: #EEE7E1;
+        }
+        .parent{
+            background-color: white;
+            width: 380px;
+        }
+        h3{
+            margin: 0;
+
+            background-color: #E9185A;
+
+            height: 40px;
+            line-height: 40px;
+
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+
+            padding-left: 15px;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+
+        }
+        li{
+            list-style: none;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dotted #ccc;
+        }
+        li a{
+            color: #666;
+            text-decoration: none;
+        }
+        /* 1. span是行元素,行元素的宽高不起作用 */
+        /* 可以通过设置padding来增大行元素 */
+        /* 2. 对于行元素的margin,只有左右起作用 */
+        span{
+            padding: 4px 8px;
+            margin-right: 10px;
+            /* 圆形 */
+            border-radius: 50%;
+
+            background-color: black;
+            color: white;
+            font-weight: 700;
+        }
+
+        a:hover{
+            color: #E9185A;
+        }
+
+        /* 3.圆形的变色方法 */
+        a:hover span{
+            background-color: #E9185A;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <h3>大家都喜欢买的美容品</h3>
+        <!-- ul>li*9>a[href=#]>span -->
+        <ul>
+            <li><a href="#"><span>1</span>雅诗兰黛即时修护眼部精华霜15ml</a></li>
+            <li><a href="#"><span>2</span>伊丽莎白雅顿显效复合活肤霜 75ml</a></li>
+            <li><a href="#"><span>3</span>OLAY玉兰油多效修护霜 50g</a></li>
+            <li><a href="#"><span>4</span>巨型一号丝瓜水320ML</a></li>
+            <li><a href="#"><span>5</span>倩碧保湿洁肤水2号 200ml</a></li>
+            <li><a href="#"><span>6</span>比度克细肤淡印霜 30g</a></li>
+            <li><a href="#"><span>7</span>兰芝 (LANEIGE)夜间修护锁水面膜 80ml</a></li>
+            <li><a href="#"><span>8</span>SK-II护肤精华露 215ml</a></li>
+            <li><a href="#"><span>9</span>欧莱雅青春密码活颜精华肌底液</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 家用电器分类页面总宽度为300px */
+        .contain1{
+            width: 300px;
+        }
+        /* 大标题字体大小为18px、白色、加粗显示，行距为35px，背景使用线性渐变 */
+        .head1{
+            background: linear-gradient(180deg, rgb(13, 77, 255), rgb(173, 214, 252))
+        }
+        .head1 h2{
+            font: bold 18px 微软雅黑;
+            color: white; 
+            height: 35px;
+            line-height: 35px;
+            text-indent:1em;
+        }
+
+        ul{
+           list-style: none; 
+        }
+        /* 电器分类字体大小为14px、加粗显示，行距为30px，背景使用线性渐变 */
+        .head2{
+            background: linear-gradient(180deg, white,rgb(146, 183, 224),white); 
+        }
+        .head2 h4{
+            text-indent: 1.5em;
+            font: bold 14px 微软雅黑;
+            color:rgb(37, 95, 255)
+        }
+        /* 电器分类超链接字体无下划线，鼠标移入出现下划线 */
+        .head2 h4:hover{
+            text-decoration: underline;
+        }
+        
+        /* 分类内容字体大小为12px，行距为26px，超链接字体颜色为灰色、无下划线，鼠标移入时颜色为棕红色并且显示下划线 */
+        .contain3{
+            text-indent:1em;
+        }
+        .contain3 span{
+            font: 12px 微软雅黑;
+            color: gray;
+            height: 26px;
+            line-height: 26px;
+        }
+        .contain3 span:hover{
+            text-decoration: underline;
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contain1">
+        <div class="head1">
+            <h2>家用电器</h2>
+        </div>
+        <ul>
+            <li>
+                <div class="contain2">
+                    <div class="head2">
+                        <h4>大家电</h4>
+                    </div>
+                    <div class="contain3">
+                        <p>
+                            <span>平板电视  洗衣机  冰箱</span><br>
+                            <span>空调  烟机/灶具  热水器</span><br>
+                            <span>冷柜/酒柜  消毒柜  家庭影院</span><br>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="contain2">
+                    <div class="head2">
+                        <h4>生活电器</h4>
+                    </div>
+                    <div class="contain3">
+                        <p>
+                            <span>电风扇  净化器  吸尘器</span><br>
+                            <span>净水设备  挂烫机  电话机</span><br>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="contain2">
+                    <div class="head2">
+                        <h4>厨房电器</h4>
+                    </div>
+                    <div class="contain3">
+                        <p>
+                            <span>榨汁机  电压力锅  电饭煲</span><br>
+                            <span>豆浆机  微波炉  电磁炉</span><br>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="contain2">
+                    <div class="head2">
+                        <h4>五金家装</h4>
+                    </div>
+                    <div class="contain3">
+                        <p>
+                            <span>淋浴/水槽  电动工具  手动工具</span><br>
+                            <span>仪器仪表  浴霸/排气  灯具</span><br>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+
+    </div>
+</body>
+</html>

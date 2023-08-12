@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1. 内部使用JS -->
+    <script>
+        alert('JavaScript1');
+    </script>
+    <!-- 2. 外部使用JS -->
+    <script src="./01 javascript.js">
+        // 注意有src之后就不能在标签里面写代码了
+    </script>
+</head>
+<body>
+    <!-- 3. 不推荐的第三种使用方法 -->
+    <button onclick="alert('JS3')">Button</button>
+
+</body>
+</html>

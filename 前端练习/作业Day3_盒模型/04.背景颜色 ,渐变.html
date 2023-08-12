@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+        }
+        div:nth-of-type(1){
+            width: 500px;
+            height: 500px;
+            /* 1.背景颜色:默认透明 ,在最底层*/
+            background-color: transparent;
+            background-color: red;
+
+            /* 2.背景图片默认平铺,img在背景颜色上面 */
+            background-image: url(img1.png);
+            background-repeat: no-repeat;
+
+            /* 3.背景定位 默认图片在左上角 */
+            /* 3.1 9个预定义的位置 top center bottom */
+            background-position: center right;
+            /* 3.2 百分比 横纵轴都是 -100%~100%*/
+            background-position: 70% -70%;
+            /* 3.3 像素可以和百分比混用 */
+            background-position: 480px -30%;
+
+            /* 4.background相关参数的简写 至少一个颜色 */
+            background: lightblue url(img1.png) no-repeat 460px 15px;
+            
+        }
+
+        div:nth-of-type(2){
+            width: 100px;
+            height: 100px;
+            /* 1. 渐变色和图片只能二选一,不能在上面搞一张图片 */
+            /* 默认从上往下 */
+            background: linear-gradient(to right top,red,green,blue);/* 1:1:1 */
+            background: linear-gradient(to right top,red 10%,green 20%,blue 70%);
+            /*0度相当于钟表的方向 0~360*/
+            background: linear-gradient(135deg,red 10%,green 20%,blue 70%);
+            /* 重复渐变 */
+            background: repeating-linear-gradient(45deg,red 10%,green 20%,blue 30%);
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>html5</div>
+    <div>html5</div>
+</body>
+</html>

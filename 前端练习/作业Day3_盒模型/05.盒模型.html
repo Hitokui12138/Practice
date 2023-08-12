@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outerdiv{
+            width: 300px;
+            height: 300px;
+
+            /* 1.margin 外边距 */
+            margin-top: 50px;
+            margin: 10px 20px 30px 40px;
+            /* 也可以使用百分比,父元素的百分比,像素用的比较多 */
+            margin: 8%;
+            /* 1.1 块居中 这种方法要求固定宽高*/
+            /* 上下为0,左右为auto,也就是左右边距一样,这样就居中了 */
+            margin: 0 auto;
+
+            /* 2. border 边框*/
+            /* 2.1 宽度一般用像素表示 上右下左 */
+            border-width: medium;
+            border-width: 5px 8px 12px 15px;
+            /* 2.2 style 常用的几种style */
+            border-style: solid dotted dashed double;
+            /* 2.3 颜色 顺时针 上右下左  */
+            border-color: red green magenta yellow;
+            /* 2.4 简写 */
+            border: 5px solid red;
+
+            /* 3. padding 内边距 只是个边距,没有颜色和线 */
+            /* 这个属性会影响盒子的高宽 */
+            padding-left: 200px;
+            padding: 100px 20px 30px 40px;
+
+            /* 4. C3提供一个属性用于计算盒模型的功能 */
+            /* width + padding + border = actual width of an element
+            height + padding + border = actual height of an element */
+
+            /* 5.div的加载速度比table快,因此不用table实现块 */
+        }
+
+        .innerdiv{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="outerdiv">
+        <div class="innerdiv">
+            123
+        </div>
+    </div>
+    <div class="outerdiv">
+        <div class="innerdiv">
+            123
+        </div>
+    </div>
+</body>
+</html>

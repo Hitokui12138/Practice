@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 再导入下面这个插件 -->
+    <script src="../jquery-migrate-1.0.0.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1. 覆盖的切换
+            //toggle(),hover()
+            // $('#myDiv').on('mouseover',function(){
+            //     $(this).css('backgroundColor','green')
+            // })
+            // $('#myDiv').on('mouseout',function(){
+            //     $(this).css('backgroundColor','pink')
+            // })
+            // // on mouseover和 on mouseout可以简写成hover
+            // $('#myDiv').hover(
+            //     function(){$(this).css('backgroundColor','green')},
+            //     function(){$(this).css('backgroundColor','pink')}
+            // )
+
+            // 2. 两个方法的切换,需要导入一个插件
+            // 没有生效？
+            $('btn').toggle(function(){
+                $('#myDiv').css('backgroundColor','green');
+                console.log('1');
+            },function(){
+                $('#myDiv').css('backgroundColor','pink');
+                console.log('2'); 
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+    <input id="btn" type="button" value="事件切换">
+    <div id="myDiv" style="width:300px;height:300px;background:pink">
+        点击按钮变成绿色，再次点击红色
+    </div>
+</body>
+</html>
+

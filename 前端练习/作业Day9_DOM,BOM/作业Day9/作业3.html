@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 3.	打印1-100之间数，其中3、5、7的倍数不打印 -->
+	<div>
+		<span id="result"></span>
+	</div>
+	<script>
+		var result = document.getElementById("result");
+		var value = "";
+		for(var i = 1; i <= 100; i++){
+			if(i % 3 != 0 && i % 5 != 0 && i % 7 != 0){
+				value += i + "<br>";
+			}
+		}
+		result.innerHTML = value;
+	</script>
+</body>
+</html>
