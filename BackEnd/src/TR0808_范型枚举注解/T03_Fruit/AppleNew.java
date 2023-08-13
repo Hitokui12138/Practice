@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举.T03_Fruit;
+package TR0808_范型枚举注解.T03_Fruit;
 
 /**
  * 注意,AppleNew不是泛型类,

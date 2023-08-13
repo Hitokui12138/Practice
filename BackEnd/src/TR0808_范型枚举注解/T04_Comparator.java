@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举;
+package TR0808_范型枚举注解;
 
 public class T04_Comparator {
     public static void main(String[] args) {

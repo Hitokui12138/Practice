@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举;
+package TR0808_范型枚举注解;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

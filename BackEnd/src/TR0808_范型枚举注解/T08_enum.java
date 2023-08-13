@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举;
+package TR0808_范型枚举注解;
 
 /**
  * jdk 1.5 枚举类,注解

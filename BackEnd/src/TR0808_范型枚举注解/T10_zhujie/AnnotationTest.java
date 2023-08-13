@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举.T10_zhujie;
+package TR0808_范型枚举注解.T10_zhujie;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

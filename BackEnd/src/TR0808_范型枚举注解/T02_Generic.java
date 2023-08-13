@@ -1,4 +1,4 @@
-package TR0808_范型SystemMath枚举;
+package TR0808_范型枚举注解;
 
 /**
  * 泛型:把运行时的检查提前到编译期(jdk1.5之后加的)(也称为类型实参,参数化类型) Parameterized type
