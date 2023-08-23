@@ -62,6 +62,37 @@ public class UserDaoTest {
     }
 
     /**
-     * 作业:写个分页
+     * 调用MYSQL的结果集
+     * SELECT就是一个结果集
      */
+    @Test
+    public void test5(){
+        userDao.getEmpDept();
+    }
+    /**
+     * 分页查询
+     */
+    @Test
+    public void test6(){
+        userDao.page(1,3);
+        userDao.page(2,3);
+        userDao.page(3,3);
+    }
+
+    /**
+     * MYSQL 事务
+     */
+    @Test
+    public void test7(){
+        userDao.transfer(1, 2, 200);
+    }
+
+    /**
+     * MYSQL 事务
+     */
+    @Test
+    public void test8(){
+        System.out.println(userDao.transfer_pro(2, 1, 100));
+    }
+
 }

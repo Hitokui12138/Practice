@@ -5,6 +5,8 @@ import com.entity.Emp;
 import com.entity.User;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -58,11 +60,42 @@ public class EmpDaoTest {
         emp.setDeptno(10);
         int rows = empDao.addEmp(emp);
     }
-
+    //删
     @Test
     public void test5(){
         Emp emp = new Emp();
         emp.setEmpno(3);
         System.out.println(empDao.delEmp(emp));
     }
+
+    //更新
+    @Test
+    public void test6() throws ParseException {
+        Emp emp = new Emp();
+        emp.setEmpno(4);
+        String hiredate = "2023-08-23";
+        SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
+        emp.setHiredate(df1.parse(hiredate)); //返回util.date
+        System.out.println(empDao.updEmp(emp));
+    }
+
+    /**
+     * Procedure的调用
+     *
+     */
+    @Test
+    public void test7() throws ParseException {
+        ArrayList<Emp> empList = empDao.getALLempByID(30,1);
+        empList.forEach(System.out::println);
+    }
+    /**
+     * 函数
+     * 根据ID取sal
+     */
+    @Test
+    public void test8() throws ParseException {
+        int i = empDao.f_1(7499);
+        System.out.println(i);
+    }
+
 }

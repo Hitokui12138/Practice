@@ -35,8 +35,11 @@ public class JdbcOracleUtils {
 
     /**
      * 3. 关闭连接
+     * Statement 多态
+     * PreparedStatement
+     * CallableStatement
      */
-    public static void close(Connection conn, PreparedStatement pstm, ResultSet rs) {
+    public static void close(Connection conn, Statement pstm, ResultSet rs) {
         if (rs != null) {
             try {
                 rs.close();
@@ -61,7 +64,15 @@ public class JdbcOracleUtils {
                 e.printStackTrace();
             }
         }
+    }
 
+    /**
+     * 重载一个不用关rs的方法,因为rs只有DQL在用
+     * @param conn
+     * @param pstm
+     */
+    public static void close(Connection conn, Statement pstm) {
+        close(conn,pstm,null);
     }
 
     public static void main(String[] args) throws SQLException {

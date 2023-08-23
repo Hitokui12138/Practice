@@ -17,7 +17,7 @@ public class JdbcUtils {
      * 这个要求背下来
      */
     public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://localhost:3306/myschool?serverTimezone=GMT";
+    public static final String URL = "jdbc:mysql://localhost:3306/myschool?serverTimezone=GMT&useSSL=false";
     public static final String USER = "root";
     public static final String PASSWORD = "admin";
 
