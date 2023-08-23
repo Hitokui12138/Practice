@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.util.Date;
+
 /**
  * @author admin
  * @version 1.0.0
@@ -12,10 +14,13 @@ public class Emp {
     private String ename;
     private String job;
     private int mgr;
-    private String hiredate;
+    private Date hiredate;  //注意是util.Date
     private double sal;
     private double comm;
     private int deptno;
+
+
+
 
     public Emp() {
     }
@@ -50,7 +55,7 @@ public class Emp {
         return mgr;
     }
 
-    public String getHiredate() {
+    public Date getHiredate() {
         return hiredate;
     }
 
@@ -82,7 +87,7 @@ public class Emp {
         this.mgr = mgr;
     }
 
-    public void setHiredate(String hiredate) {
+    public void setHiredate(Date hiredate) {
         this.hiredate = hiredate;
     }
 

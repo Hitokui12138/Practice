@@ -45,3 +45,5 @@
 2. cmd T： 更新代码
 3. shift opt C： 查看最近的变更记录
 
+# idea
+1. ctrl shift J
