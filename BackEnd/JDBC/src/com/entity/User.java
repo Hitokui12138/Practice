@@ -1,4 +1,4 @@
-package com.java;
+package com.entity;
 
 /**
  * @author admin
@@ -10,7 +10,8 @@ package com.java;
 
 /**
  * javaBean
- *
+ * DTO: 数据传输对象
+ * 也可以叫POJO
  */
 public class User {
     private int id;
@@ -21,6 +22,9 @@ public class User {
         this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public User() {
     }
 
     @Override

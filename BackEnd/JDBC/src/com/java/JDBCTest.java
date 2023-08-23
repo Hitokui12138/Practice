@@ -1,5 +1,6 @@
 package com.java;
 
+import com.entity.User;
 import org.junit.jupiter.api.Test;
 
 import java.sql.*;
@@ -29,7 +30,7 @@ public class JDBCTest {
         url:需要时区 serverTimezone=GMT ,这个表示中国
          */
         System.out.println("conn = " + conn);
-                /*
+        /*
         Statement接口
          */
     }
@@ -211,7 +212,11 @@ public class JDBCTest {
 
         //数组的遍历的四种方式
         /*
-        
+        1. fori list.size() list.get(i)
+        2. for(User user : list)
+        3. list.getIterator()
+        4. userlist.forEach(System.out :: println);
+
          */
         userlist.forEach(System.out :: println);
 
@@ -220,5 +225,12 @@ public class JDBCTest {
         conn.close();
     }
 
-
+    /**
+     * 设计模式 MVC 工厂 模板 单例
+     * DAO
+     * 1. DAO实体类
+     * 2. DAO接口
+     * 3. DAO实现类
+     * 3. 工具类
+     */
 }
