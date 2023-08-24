@@ -2,6 +2,8 @@
   <library name="mysql-connector-java-8.0.11">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/JDBC/mysql-connector-java-8.0.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/druid/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/druid/druid-0.1.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -25,5 +25,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="ojdbc6" level="project" />
+    <orderEntry type="library" name="druid" level="project" />
   </component>
 </module>
