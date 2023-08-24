@@ -2,6 +2,7 @@ package com.dao;
 
 import com.entity.User;
 import com.mysql.cj.jdbc.JdbcConnection;
+import com.utils.DruidUtils;
 import com.utils.JdbcUtils;
 import oracle.jdbc.OracleTypes;
 
@@ -105,7 +106,7 @@ public class UserDao {
         String sql = "SELECT * FROM user";
         ArrayList<User> userList = new ArrayList<>();
         try {
-            conn = JdbcUtils.getConn();
+            conn = DruidUtils.getConn();
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             User user = null;
@@ -120,7 +121,7 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.close(conn, pstm, rs);
+            DruidUtils.close(conn, pstm, rs);
         }
         return null; //0表示失败了
     }

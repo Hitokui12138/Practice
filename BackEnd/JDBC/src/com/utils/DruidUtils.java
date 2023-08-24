@@ -2,10 +2,8 @@ package com.utils;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
-import com.sun.tools.javac.Main;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -17,17 +15,16 @@ import java.util.Properties;
  * @Description TODO
  * @createTime 2023年08月24日 10:01:00
  */
-public class JdbcDruidUtils {
-    /**
-     * 获取连接和
-     */
+public class DruidUtils {
+
     private static DataSource datasource;
 
+    //初始化DruidDataSource
     static {
         Properties prop = new Properties();
-        InputStream is = JdbcDruidUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+        InputStream is = DruidUtils.class.getClassLoader().getResourceAsStream("druid.properties");
         try {
-            prop.load(is);
+            prop.load(is);//如果读不出来的话可以试试Rebuild Project
             datasource = (DruidDataSource) DruidDataSourceFactory.createDataSource(prop);
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,10 +63,8 @@ public class JdbcDruidUtils {
             }
         }
 
-        //
+        //测试用
         public static void main(String[] args) throws SQLException {
-            System.out.println(JdbcDruidUtils.getConn());
+            System.out.println(DruidUtils.getConn());
         }
-
-
 }
