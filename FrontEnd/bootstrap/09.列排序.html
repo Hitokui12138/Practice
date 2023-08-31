@@ -1,0 +1,37 @@
+<!-- 使用push往右挤和pull往左拽 -->
+<!-- offset只能往左 -->
+<!-- 现在不需要浮动了 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            background-color: pink;
+        }
+
+        [class^=col-]{
+            background-color: magenta;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-push-8">左侧</div>
+            <div class="col-md-8 col-md-pull-4">右侧</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="visible-lg">在某种设备的情况下显示</div>
+        <div class="hidden-lg">在某种设备的情况下隐藏</div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

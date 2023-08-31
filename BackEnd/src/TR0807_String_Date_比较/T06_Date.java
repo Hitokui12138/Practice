@@ -55,6 +55,16 @@ public class T06_Date {
     }
 
     @Test
+    public void test1(){
+        Date ud = new Date();
+        //1. util->sql
+        java.sql.Date sd = new java.sql.Date(ud.getTime());
+        //2. sql->util
+        Date ud2 = new Date(sd.getTime());
+    }
+
+
+    @Test
     public void dateFormat() throws ParseException {
         /*
         1.日期格式化:日期->字符串

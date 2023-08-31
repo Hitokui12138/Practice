@@ -256,8 +256,8 @@ public class UserDao {
 
             cst.execute();
             return cst.getInt(4);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }finally {
             JdbcUtils.close(conn, cst, rs);
         }

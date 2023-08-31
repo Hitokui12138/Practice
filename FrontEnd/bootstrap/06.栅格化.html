@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* 15px内边距,col也带15个px内边距,因此最好带个row,row可以去除相同内边距 */
+        .container{
+            background-color: pink;
+        }
+
+        [class^=col-]{
+            background-color: magenta;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <!-- md 1200以内,高于这个值样式仍然有效,低于这个值样式失效 -->
+        <!-- 如果支持移动端,应该使用xs,支持pc端则应该设置成md,不知道的话就写xs -->
+        <div class="row">   <!-- 一行12个,row可以去除container的15px内边距 -->
+            <div class="col-md-4">col-md-4</div>
+            <div class="col-md-4">col-md-4</div>
+            <div class="col-md-4">col-md-4</div>
+        </div>
+
+        <div class="row">   <!-- 超过12列的话自动换行 -->
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+            <div class="col-lg-1">col-lg-1</div>
+
+            <div class="col-lg-1">col-lg-1</div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

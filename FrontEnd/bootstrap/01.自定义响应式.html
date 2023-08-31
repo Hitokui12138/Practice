@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        应该把大的写上面,看一下截图
+        
+        */
+        /* <=768px */
+        @media all and (max-width: 767px){
+            .container{
+                width: 100%;
+            }
+        }
+        /*
+        如果比992小
+        */
+        @media all and (max-width: 991px){
+            .container{
+                width: 750px;
+            }
+        }
+
+        /*
+        如果比1200小
+        */
+        @media all and (max-width: 1199px){
+            .container{
+                width: 970px;
+            }
+        }
+
+        @media all and (min-width: 1200px){
+            .container{
+                width: 1170px;
+            }
+        }
+
+        .container{
+            background-color: pink;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">123</div>
+</body>
+</html>

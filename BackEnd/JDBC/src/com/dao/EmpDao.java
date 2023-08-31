@@ -94,7 +94,7 @@ public class EmpDao {
         StringBuilder builder = new StringBuilder()
                 .append("SELECT * FROM")
                 .append("(SELECT a.*, rownum r FROM")
-                .append("    (select EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO from EMP order by empno desc)a)")
+                .append("    (select EMPNO, ENAME, JOB, MGR, HIREDATE from EMP order by empno desc)a)")
                 .append("WHERE r <= ? AND r >?");
         /**
          * 起始条数 = (当前页 - 1) * 每页显示数
@@ -110,11 +110,9 @@ public class EmpDao {
                 Emp emp = new Emp();
                 emp.setEmpno(rs.getInt("empno"));
                 emp.setEname(rs.getString("ename"));
-                emp.setDeptno(rs.getInt("deptno"));
-                emp.setSal(rs.getDouble("sal"));
-                emp.setHiredate(rs.getDate("hiredate")); // sql.date转util.date
                 emp.setJob(rs.getString("job"));
                 emp.setMgr(rs.getInt("mgr"));
+                emp.setHiredate(rs.getDate("hiredate")); // sql.date转util.date
                 empList.add(emp);
             }
             return empList;
