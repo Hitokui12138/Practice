@@ -21,3 +21,9 @@
 1. `git clone httpsXXXX`clone到本地
 2. `git push origin main`试一下能不能行
 3. ``
+
+## homebrew
+1. `brew ls tomcat` 查看安装地址
+2. `brew services list` 查看当前服务列表和状态
+    - `brew services start tomcat@9` 启动服务
+    - `brew services stop mysql` 停止服务
