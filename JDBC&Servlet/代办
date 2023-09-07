@@ -4,3 +4,7 @@ Shift + F5 强制刷新
 
 
 本周作业: 用Oracle+Maven写增删改查`
+
+1.
+<!--  Spring整合资源文件,然后才能用${}调用参数,被调用的参数高亮  -->
+    <context:property-placeholder location="classpath:druid.properties"/>
