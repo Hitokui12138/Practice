@@ -1,7 +1,7 @@
 # 1.导包
 
  ```xml
- <properties>
+    <properties>
         <!--spring-->
         <spring.version>5.2.8.RELEASE</spring.version>
     </properties>
@@ -105,11 +105,11 @@
 # 2.web.xml
 
 ```xml
+    <!--父容器,默认会到/WEB-INF/applicationContext.xml找spring配置文件-->
 	<context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:beans.xml</param-value>
     </context-param>
-    <!--默认父容器会到/WEB-INF/applicationContext.xml找spring配置文件-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -126,11 +126,11 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!-- SpringMVC核心 -->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param> <!--指定配置文件-->
+        <init-param> <!--指定配置文件,SpringMVC默认回去WeB-INF/下去找{dispatcherServlet}-servlet.xml文件-->
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:springmvc.xml</param-value>
         </init-param>
@@ -144,7 +144,128 @@
 ```
 
 # 3.创建springmvc.xml、beans.xml、jdbc.properties、log4j2.xml
+1. springmvc
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!--  包扫描  -->
+    <context:component-scan base-package="com.gsd">
+        <!--    子容器只扫描含有controller注解的    -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    
+    <!--  支持返回JSON对象,日期转换  -->
+    <mvc:annotation-driven/>
+    
+    <!--  视图解析器  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+	<!--  放行静态文件 -->
+    <mvc:default-servlet-handler/>
+</beans>
+```
+2.beans.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://mybatis.org/schema/mybatis-spring
+       http://mybatis.org/schema/mybatis-spring.xsd">
+	
+	<!--  包扫描  -->
+    <context:component-scan base-package="com.gsd">
+        <!--    父容器不要扫描含有controller注解的    -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
 
+    <!--  MyBatis  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath*:mapper/*.xml" />
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+            	<!--   3.设置驼峰命名转换     -->
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+            </bean>
+        </property>
+    </bean>
+    <!-- SpringDataSource & MySQL -->
+    <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/travle?serverTimezone=GMT&amp;useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <!-- DruidDataSource,可以设置最大连接数等等 Oracle -->
+	<!-- 有些${username}是全局变量不能直接用 -->
+	<!-- <context:property-placeholder location="classpath:jdbc.properties"/>
+	<bean id="dataSource"  class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+	</bean> -->
+    
+	<!--  MapperScaner  -->
+    <mybatis-spring:scan base-package="com.gsd.dao"/>
+</beans>
+```
+3. jdbc.property,如果用druid和oracle
+```xml
+jdbc.driverClassName=oracle.jdbc.OracleDriver
+jdbc.url=jdbc:oracle:thin:@localhost:1521:XE
+jdbc.username=scott
+jdbc.password=tiger
+
+jdbc.minIdle=2
+jdbc.initialSize=3
+jdbc.maxActive=5
+jdbc.removeAbandoned=true
+jdbc.removeAbandonedTimeout=180
+jdbc.maxWait=50000
+jdbc.validationQuery=SELECT 1
+jdbc.testOnBorrow=true
+
+```
+
+4. log4j2
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </appenders>
+    <loggers>
+        <!--    自定义日志级别    -->
+        <logger name="test.EmpTest" level="info" additivity="false">
+            <appender-ref ref="Console"/>
+        </logger>
+
+        <!--    设置日志的最低级别    -->
+        <root level="trace">
+            <appender-ref ref="Console"/>
+        </root>
+    </loggers>
+</configuration>
+```
 
 # 4.controller、service、dao、实体类、mapper文件
