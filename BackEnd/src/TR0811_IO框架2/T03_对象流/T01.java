@@ -55,7 +55,7 @@ public class T01 {
 class Person implements Serializable {
     //Alt + Entry
     //主要是反序列化时需要用到
-    @Serial
+    //@SerializeField
     private static final long serialVersionUID = 1280473325756659577L;//必须手动给一个序列化号,不然修改后就专不回来了
 
     private String name;
