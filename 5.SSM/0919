@@ -1,0 +1,115 @@
+## Git
+1. Git与SVN
+    1. Git
+        1. 分布式的,每台电脑的本地仓库就是一个服务器
+        2. 就算远程仓库坏了,本地仓库也能用
+        3. 使用一个指针Head,指向旧版本文件,本地只有一份
+    2. SVN
+        1. 集中式的中央处理器
+        2. 局域网,不能连外网,一旦中央服务器坏了,文件就都没了
+        3. 容易出现服务器单点故障,容错性低
+        4. 每个版本复制一份
+1. Git使用流程
+    1. 架构师
+        1. 本地工作区(Worksapce)创建项目
+        2. 初始化`.git`目录
+        3. 从`工作区`ADD到`暂存区`(Index Stage)
+        3. 从`暂存区`Commit到`本地仓库`(Local Repository)
+        4. `Push`到远程仓库(Remote Repository)
+    2. 开发者1
+        1. 第一次下载使用`CLONE`克隆整个项目到本地
+        2. 开发项目
+        3. ADD,COMMIT,PUSH
+    3. 开发者2
+        1. 使用`Pull`拉取其他人的修改
+        2. 开发
+        3. Add,Commit,push
+2. 下载Git相关工具
+    1. 右键可以看到两个工具
+        1. Git GUI 不好用的图形工具
+        2. Git Bash 模拟一个LINUX环境,可以输入代码
+            - `$` 表示LINUX
+    2. 安装乌龟`TortoiseGit`
+    3. 修改全局用户名
+        - User -> Admin -> `.gitconfig`源文件
+    4. 新建仓库`.git`后,将来指针会存在下面这个路径
+        - .git -> object
+3. TortoiseGit
+    1. 使用显示日志或差异比较来查看文件历史
+    2. 误删或者错误修改,只要还是在没有Commit的暂存区,都可以使用还原功能
+    3. 回退到某个版本
+        1. 查看日志 -> 选中目标版本 -> 重置Master到这个版本
+        2. 新版本增加的文件会被`删除`,但不是真的删除,而是指针指向旧版本了
+        3. 但如果在旧版本上提交的话,之前的新版本就真的没了
+    4. 删除
+        1. 删除并保留本地副本(只是标记为删除)
+        2. 删除(真的删除)
+    5. push
+        1. 远端:输入远程仓库的URI
+        2. 网络: 需要配置SSH客户端到Git目录下`ssh.exe`
+            - Git/usr/bin/ssh.exe
+    6. 解决冲突
+        1. push的时候会提示冲突文件,使用右键解决冲突
+            1. 保留A
+            2. 保留B
+            3. AB
+            4. BA
+        2. 标记为已解决
+4. java项目
+    1. .ignore文件
+        1. idea项目,以下文件不需要上传
+            1. .idea
+            2. out,编译好的class文件
+            3. XXX.iml
+        2. 如果使用的是TortoiseGit
+            - 可以直接选中这三个文件然后添加到忽略列表
+            - 会生成一个.ignore文件
+        3. 也可以创建一个
+5. GitHub的SSH公钥设置
+- 参考: https://help.gitee.com/base/account/SSH%E5%85%AC%E9%92%A5%E8%AE%BE%E7%BD%AE
+    1. 使用`ssh-keygen ed25519`生成公钥私钥对
+        1. 私钥文件: id_ed25519
+        2. 公钥文件: id_ed25519.pub
+    2. 把公钥内容复制到当前账户里
+    3. GitHub可能还需要`Allow write access`
+6. 如果采用HTTPS的方式登录,会提示你输入账号密码
+    1. 查看保存的账号密码
+        - 凭据管理器 -> Wndiows凭据
+## 使用Eclipse和idea
+1. Idea
+    1. Settings -> Git -> Path to Git executable
+        - 设置本地Git/bin/git.exe
+    2. 创建忽略文件
+        1. 安装插件 `.ignore`
+        2. 右键项目，创建忽略文件，格式选择Java
+    3. Git操作
+        1. 选择上面的VCS
+        2. 选择`Create Git Repository`
+        3. 再右键项目就会出现Git选项
+            - 也可以在右上角操作
+    4. 使用Idea做Commit的注意点
+        - 不要勾选`Analyze code`和`Check TODO(Show All)`
+        - 提交后可以在左下角的Git里面查看日志
+    5. 第一次使用Idea克隆项目
+        1. 打开后选择Get From VCS
+2. Eclipse
+    1. 好像不需要什么特别的设置
+    2. Git操作
+        1. 右键项目 -> Team ->Share Project
+        2. 创建一个本地仓库
+        3. 只能手写或者复制一个ignore文件
+            - bin,.setting,*.classpath,*.project
+        4. 可以右键项目使用Add Commit push
+    3. 打开一些图形化工具
+        1. Show View -> Git Repositories
+        2. Team -> show in History
+    4. Clone
+        1. Git Repositories -> 有一个CLONE图标
+        2. 下载下来后想导入Eclipse
+            1. 导入项目
+            2. 选择 Git -> Project from Git With Smart Import
+            3. 选择CLONE下来的仓库
+
+
+
+    
