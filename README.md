@@ -22,9 +22,45 @@
 1. `git clone httpsXXXX`clone到本地
 2. `git push origin main`试一下能不能行
 3. ``
-
+----
 ## homebrew
 1. `brew ls tomcat` 查看安装地址
 2. `brew services list` 查看当前服务列表和状态
     - `brew services start tomcat@9` 启动服务
     - `brew services stop mysql` 停止服务
+
+## Config
+1. `vim .bash_profile`编辑配置文件
+2. `source ~/.bash_profile` 让这个配置文件生效
+
+## 打开mac隐藏文件
+1. Command + Shift + .
+## 查看端口
+1. `sudo lsof -i tcp:8080` 查看占用情况
+2. `sudo kill -9 3210` 3210是该进程的PID
+
+## 使用idea社区版
+1. 创建目录结构(SpringMVC)
+- SpringBoot结构稍微不同
+    - src
+        - main
+            - java
+            - resources
+            - webapp(手动创建)
+                - WEB-INF(手动创建)
+                    - web.xml(非必需)
+                - index.html(测试用首页)
+        - test
+2. 打开smart tomcat
+    - 设置Deployment Drictory 到webapp下面(会自动设置)
+3. Project Structure
+    1. Project 检查jdk
+    2. Modules -> Path(只有SpringBoot需要?)
+        - 选Use Module Compile output path
+            - 设置到web/WEB-INF/classes
+
+## PlantUML
+1. 下载插件plantUML,这样可以在.puml文件里画图
+2. 想在markdown里使用的话还需要:
+    1. plantuml.server
+
