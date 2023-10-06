@@ -26,6 +26,8 @@
 6. ctrl I: implement 方法
 7. cmd opt M: 将选中的部分提取成方法
 
+8. ctrl H 看看类结构
+
 
 # idea导航功能
 1. cmd ， IDEA设置
@@ -47,3 +49,7 @@
 
 # idea
 1. ctrl shift J
+
+1. 格式化:ctr alt L
+    2. 在红线的后面alt+entry
+    3. 查找类方法的快捷键
