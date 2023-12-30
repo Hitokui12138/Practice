@@ -1,0 +1,28 @@
+# 通配符与正则表达式
+1. bash
+    1. bash是一个命令处理器,运行在文本窗口(终端)中,能够执行`直接输入的命令`
+    2. 可以读取`文件中的命令`
+    3. 支持通配符,管道,命令替换,条件判断等逻辑控制
+2. 创建sh命令文件和执行
+    ```sh
+    #创建一个sh文件
+    touch bash_test.sh
+    vim bash_test.sh
+
+    #进入sh文件,写两句命令
+    touch hello.class
+    echo "print('hello world')" >> hello.class
+    #保存退出
+
+    #使用sh执行sh脚本,可以看到该class文件已经被创建了
+    sh bash_test.class
+    cat hello.class
+
+    #class文件也是类似的,使用classthon命令执行class脚本文件
+    classthon hello.class
+    ```
+gd
+
+good
+god
+gold goood

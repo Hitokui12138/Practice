@@ -1,0 +1,47 @@
+.block{
+    float: left;    /* 不起作用,因为div占据整行宽度 */
+    width: 33.3%;   /* 现在一行三个div元素 */
+    border: 1px solid #ccc; /* 加了border之后宽度变了,第三个元素被挤到第二行了 */
+    box-sizing: border-box; /* 使用box-sizing解决这个问题centent-box标准盒子,border-box带边框的盒子 */
+}
+
+.clearfix{
+    /* 每次float用完之后都要清除浮动,好像会影响背景 */
+    /* 清除浮动 both表示left和right */
+    clear:both;
+}
+
+#main-block{
+    float: left;
+    width: 70%;
+    border: 1px solid #ccc; /* 只要加边框就需要box-sizing  */
+    box-sizing: border-box; 
+}
+
+#sidebar{
+    float: right;   /* 往右边靠 */
+    width: 30%;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+
+.position-box{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.position-box h1{
+    position: absolute;
+}
+
+.position-box h2 {
+    position: absolute;
+}
+
+#fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}

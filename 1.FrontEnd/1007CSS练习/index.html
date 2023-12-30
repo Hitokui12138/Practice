@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--内部样式类-->
+    <style>
+        
+    </style>
+    <!--外部样式类-->
+    <link rel="stylesheet" href="./index.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <!-- 一行三个 -->
+    <div class="block">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi labore optio delectus tempora quisquam dolorem omnis veritatis ut temporibus aliquid impedit, ipsum ducimus commodi illo quibusdam repellendus. Dolorem, optio.</p>
+    </div>
+    <div class="block">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi labore optio delectus tempora quisquam dolorem omnis veritatis ut temporibus aliquid impedit, ipsum ducimus commodi illo quibusdam repellendus. Dolorem, optio.</p>
+    </div>
+    <div class="block">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi labore optio delectus tempora quisquam dolorem omnis veritatis ut temporibus aliquid impedit, ipsum ducimus commodi illo quibusdam repellendus. Dolorem, optio.</p>
+    </div>
+
+    <div class="clearfix"></div><!--每个浮动后面都要跟着一个清除浮动-->
+
+    <!-- main和side -->
+    <div id="main-block">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi labore optio delectus tempora quisquam dolorem omnis veritatis ut temporibus aliquid impedit, ipsum ducimus commodi illo quibusdam repellendus. Dolorem, optio.</p>
+    </div>
+    <div id="sidebar">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse eligendi labore optio delectus tempora quisquam dolorem omnis veritatis ut temporibus aliquid impedit, ipsum ducimus commodi illo quibusdam repellendus. Dolorem, optio.</p>
+    </div>
+
+    <div class="clearfix"></div>
+
+<!-- 定位
+    1. 静态定位  static 默认的
+        
+    2. 相对定位 position: relative
+        1. 和静定位一样可以上下左右偏移,以原位置的左上角为原点
+        2. 根据原本的位置做偏移,偏移后,原本的空间保留不变
+    3. 绝对定位 position: absolute
+        1. 没有相对定位做参考时,参考当前窗口偏移 
+            1. 原来的位置不保留,就像浮动了一样
+        2. 子绝父相
+    4. 固定定位 fixed
+        1. 相对于窗口做定位
+    5. sticky
+        1. 导航栏,虽然往下滚动了,但仍然会固定在窗口的顶部
+-->
+<!-- 因为position-box是相对定位的,h1的绝对定位会以父元素为原点 -->
+    <div class="position-box">
+        <h1>IMDB评分网站</h1>
+        <h2>heading2</h2>
+    </div>
+
+    <!-- fixed定位,固定在窗口右下角不动 -->
+    <button id="fixed">Button</button>
+
+</body>
+</html>
