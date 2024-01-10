@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * TreeSet 红黑二叉树,可以排序,查询,比Array的sort快很多
  * 注意去重的方法不是equals(),而是下面两种,因此里面的对象也必须实现compareTo()或者compare()方法
  * 1. 自然排序:Comparable,compareTo()
- * 2. 定制排序:Comparator,compare()
+ * 2. 定制排序:ComparatorTest,compare()
  *
  * 规则
  * 1. a>b 正数

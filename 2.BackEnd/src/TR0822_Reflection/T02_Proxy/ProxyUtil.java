@@ -29,7 +29,7 @@ public class ProxyUtil {
          *      1.ClassLoader loader,指定一个类加载器,固定写法,使用当前类的类加载器
          *      2.Class<?>[] interfaces,指定生成的代理长什么样,有哪些方法,可以接收接口数组
          *      3.InvocationHandler h,指定生成的对象要做什么事情
-         * 2. InvocationHandler是一个接口,接口不能直接创建对象(Comparator)
+         * 2. InvocationHandler是一个接口,接口不能直接创建对象(ComparatorTest)
          *      使用匿名内部类对象
          * 3. 重写invoke()方法,三个参数+回调方法
          *      代理做什么事情由invoke决定

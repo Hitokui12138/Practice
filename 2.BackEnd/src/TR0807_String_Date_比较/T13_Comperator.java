@@ -10,7 +10,7 @@ import java.util.Comparator;
  * 自然排序Comparable, 定制排序Comparator
  * 1.Comparable接口 CompareTo()
  * 像是String包装类等等都实现了Comparable接口
- * 2.Comparator compare()
+ * 2.ComparatorTest compare()
  * 想倒叙排序需要使用定制的comparator
  */
 public class T13_Comperator {
@@ -31,7 +31,7 @@ public class T13_Comperator {
         System.out.println(Arrays.toString(goods));
 
         //想倒叙排序需要使用定制的comparator
-        //Arrays.sort(T[] t, Comparator<? super T> c)
+        //Arrays.sort(T[] t, ComparatorTest<? super T> c)
         Arrays.sort(goods,new Comparator<Goods>(){  //匿名函数?
             @Override
             public int compare(Goods o1, Goods o2) {

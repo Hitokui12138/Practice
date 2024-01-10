@@ -11,3 +11,5 @@
 3. Documented
 4. Inherited
 5. 在不修改源代码的情况下可以打几个标记,从而在运行时拿到标记的值
+
+看一下@SupperssWarning
