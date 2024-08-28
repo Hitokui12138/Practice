@@ -1,0 +1,4 @@
+{
+  "python.pythonPath": "/opt/homebrew/opt/python@3.12/bin/python3.12",
+  "python.defaultInterpreterPath": "/opt/homebrew/opt/python@3.12/bin/python3.12",
+}

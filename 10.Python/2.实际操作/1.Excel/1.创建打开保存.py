@@ -11,7 +11,7 @@ from openpyxl import Workbook, load_workbook
 # wb.save("/Users/peihanggu/GithubLocal/Python/VSCodeProjects/test1.xlsx")
 
 # 2.打开刚才的工作簿
-wb = load_workbook("/Users/peihanggu/GithubLocal/Python/VSCodeProjects/test1.xlsx")
+wb = load_workbook("/Users/peihanggu/GithubLocal/Practice/10.Python/2.实际操作/test1.xlsx")
 ws = wb.active
 print(ws.title)
 
