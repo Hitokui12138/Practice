@@ -1,4 +1,4 @@
-# 培训练习作业的说明文件
+# 练习的说明文件
 - https://github.com/Hitokui12138/Practice
 ## git使用方法
 ### A 创建本地仓库
