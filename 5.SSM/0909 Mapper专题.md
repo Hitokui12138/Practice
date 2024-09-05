@@ -5,12 +5,51 @@
     - private Area area;
 3. 一对多,Scetype
     - private List<Scenery> sceneries;
-# 1. 查询
+
+# 一般的多表查询
+1. 需要标明数据库字段和java字段的联系
+    - column是数据库字段,property是java字段
+2. `<select>`
+    1. `parameterType`表示参数类型,如果是int之类的可以不写
+    2. `resultType`表示返回类型
+        1. `resultType`自动映射,属性名和表字段`一致`的情况
+        2. `resultMap`自定义映射,
+            - 属性名和表字段`不一致`的情况
+            - 一对多或者多对一的情况
+    3. 注意select的Dao应该返回一个`List<entity>`
+        - TooManyResultException
+```xml
+<!-- 主表 -->
+<resultMap type="com.example.demo.entity.MRoom" id="room">
+    <id column="id" property="id"></id>
+    <result column="room_name" property="roomName"></result>
+    <result column="created_at" property="createdAt"></result>
+    <collection property="roomUserList" resultMap="roomUser"><collection>
+</resultMap>
+<!-- 分表 -->
+<resultMap type="com.example.demo.entity.TRoomUser" id="roomUser">
+    <id column="id" property="id"></id>
+    <result column="room_id" property="roomId"></result>
+    <result column="current_user_id" property="currentUserId">
+</resultMap>
+<!-- 查询 -->
+<!-- select必须有resultType或者resultMap -->
+<select id="findLoginUserRooms" resultMap="room">
+        select
+            room_name
+        from rooms r
+        inner join room_users ru
+            on r.id = ru.room_id
+        inner join users u
+            on ru.current_user_id = u.id
+        where
+            ru.current_user_id = #{currentUserId,jdbcType=INTEGER}
+    </select>
+```
+
+# 1. 查询(开启驼峰映射后?)
 1. 查单表,添加数据
     1. `<mapper>`namespace表示Dao类
-    2. `<select>`
-        1. `parameterType`表示参数类型,如果是int之类的可以不写
-        2. `resultType`表示返回类型
     ```xml
     <mapper namespace="com.gsd.dao.EmpDao">        
         <select id="findAll" resultType="com.gsd.entity.Emp">
@@ -56,7 +95,7 @@
             </select>
         </mapper>
         ```s
-## 多对一
+## 一对一
 - private Scetype scetype;
 - private Area area;
 1. 查景点主表和Type名称
@@ -130,8 +169,35 @@
         ```
 ----
 # 动态SQL
-- OGNL表达式 #{get方法}，底层使用PreparedStatement接口，先生成？，再替换
-- ${} == Statement 接口 直接拼接
+1. 两种获取数据的方法
+    1. 仅一个参数的时候,或者直接传一个Entity的时候
+        1. OGNL表达式 #{get方法}，底层使用PreparedStatement接口，先生成？，再替换
+            - 字符串和日期会自动帮你加单引号
+        2. ${} == Statement 接口 字符串拼接
+            - 可能需要手动加单引号,`'${userName}'`
+    2. 多个参数(不是一个entity),会自动整合在一个Map里面
+        1. 以arg0,arg1为值,`从0开始`
+        2. 以param1,param2为值,`从1开始`
+        ```xml
+        <!-- func(String id, String name) -->
+        <select id="login" resultType="User">
+            select * from t_user
+            where
+            userid = #{arg0} and username = #{arg1}
+        </select>
+        ```
+    3. 多个参数,但是使用`@Param("XXX")`
+        - 本质也是map,只不过给每个key起了名字
+        ```xml
+        <!-- func(@Param("id") String id, @Param("name") String name) -->
+        ```
+    4. 直接把多个参数提前放到map里面,可以直接使用key取值
+        ```xml
+        <!-- func(Map<String, Object> map) -->
+        #{id},#{name}
+        ```
+    
+
 1. 增删改
     - insert delete update 标签可以混用
     ```xml
