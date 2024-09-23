@@ -64,3 +64,7 @@
 2. 想在markdown里使用的话还需要:
     1. plantuml.server
 
+## git push 时 400
+1. remote remove origin
+2. remote add origin git@github.com:Hitokui12138/Practice.git
+3. push -u origin main
