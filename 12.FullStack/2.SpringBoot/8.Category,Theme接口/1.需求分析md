@@ -1,0 +1,36 @@
+#
+## 排除被删除的数据
+1. 被删除的数据不需要查询
+    - 如果自己写WHERE语句的话
+    - WHERE DELETE_TIME==null
+2. 在Dao里面加上这个查询条件
+```java
+public interface SpuRepository extends JpaRepository<Spu, Long> {
+    //1. 单表查询
+    @Query(...)//可以用@Query来进行复杂查询
+    Spu findOneById(Long id);
+}
+```
+3. 一个更好的办法, 在Entity上面进行注解
+- 这样查询时,这条Where语句就会自动加上
+- 不过这样就彻底没法查删除的数据了, 除非再写一个类
+```java
+@Entity
+@Getter
+@Setter
+@Where(clause = "delete_time is null and online = 1 ")//原生sql
+public class Spu extends BaseEntity {...}
+```
+
+## 现状分析
+1. 将来要做SkuController
+    - 购物车要用, 历史价格和最新价格对比
+2. 现在先看看Category分类
+    1. 数量不多的话,一次性把一级分类二级分类都返回前端
+        - 一级分类还需要一个顶部的图片
+    2. 第二种是前端要什么数据,就返回什么数据, 用户每次点击就发送一次请求
+        - 具体选那种取决于分类数据的层级数量
+        - 频繁切换建议使用Redis缓存查询
+            - 但又涉及如何更新缓存数据的问题(更新时机, 业务方面问题)
+
+

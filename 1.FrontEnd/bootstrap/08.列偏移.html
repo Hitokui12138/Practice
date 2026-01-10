@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap 101 Template</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            background-color: pink;
+        }
+
+        [class^=col-]{
+            background-color: magenta;
+        }
+    </style>
+
+  </head>
+  <body>
+    <!-- 让一列居中 (12 - 自身大小)/2  -->
+    <div class="container">
+        <div class="row">
+               <!-- (12-6)/2 = 3 -->
+            <div class="col-md-6 col-md-offset-3">居中</div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 4.	计算100~999的水仙花数 -->
+	<!-- 153 = 1^3 + 5^3 + 3^3 -->
+	<div>
+		<span id="result"></span>
+	</div>
+	<script>
+		var result = document.getElementById("result");
+		var value = "";
+		for(var i = 100; i <= 999; i++){
+			var a = parseInt(i/100);
+			var b = parseInt(i/10)%10;
+			var c = parseInt(i/1)%10;
+			// if(i == a^3 + b^3 + c^3){
+			//JS只能用 Math.pow(a,b)或**来进行幂运算
+			if(i == Math.pow(a,3) + Math.pow(b,3) + Math.pow(c,3)){
+				value += i + "<br>";
+			}
+		}
+		result.innerHTML = value;
+	</script>
+</body>
+</html>

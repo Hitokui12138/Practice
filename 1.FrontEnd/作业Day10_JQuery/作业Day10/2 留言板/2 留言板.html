@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #message{
+            border: 1px solid pink;
+        }
+        /* 修改li的点的颜色的替代方法 */
+        li{
+            list-style: none;
+        }
+        .before{
+            color: red;
+        }
+        .after{
+            color: red;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <textarea id="message" rows="5"></textarea>
+    <button id="post">发布</button>
+    <ul>
+    </ul>
+    <script>
+        document.getElementById("post").onclick = function (){
+            let message = document.getElementById("message").value;
+            let li = document.createElement("li");
+            li.innerHTML = 
+            `
+            <div>
+                <span class="before">・</span>
+                <span class="after">${message}</span>
+            </div>
+            `
+            document.querySelector("ul").appendChild(li);
+        }
+    </script>
+</body>
+</html>

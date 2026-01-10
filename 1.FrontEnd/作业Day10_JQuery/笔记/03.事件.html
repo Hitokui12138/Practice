@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mouse{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        img{
+            width: 25px;
+            height: 25px;
+            /* 绝对位置很关键 */
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">双击事件</button>
+    <div id="mouse"></div>
+    <img src="./img1.png" id="img">
+    <form action="#" id="form">
+        <input name="username" id="username">
+        <select name="provence" id="provence">
+            <option value="0">==请选择==</option>
+            <option value="1">东京都</option>
+            <option value="2">辽宁省</option>
+            <option value="3">吉林省</option>
+        </select>省
+        <select name="city" id="city">
+        </select>市
+        <button>提交</button>
+    </form>
+    <!-- 点击事件,焦点事件,加载事件,鼠标事件,键盘事件,选择和改变,表单事件 -->
+    <script>
+        // 1.双击事件
+        document.getElementById("btn").ondblclick = function(){
+            alert("DoubleClick");
+        }
+
+        // 2.鼠标事件
+        document.getElementById("mouse").onmousedown = function(){
+            console.log("鼠标按下");
+        }
+        document.getElementById("mouse").onmouseup = function(){
+            console.log("鼠标松开");
+        }
+        // 让图片跟随鼠标
+        // 这个e叫做事件源,是JS回调给你的,类似于document可以提供一些属性
+        document.getElementById("mouse").onmousemove = function(e){
+            console.log("鼠标移动",e);
+            // MouseEvent提供的pageX和pageY能显示鼠标的坐标
+            // 让图片追踪光标位置
+            document.querySelector("img").style.top = e.pageY+"px";
+            document.querySelector("img").style.left = e.pageX+"px";
+        }
+        document.getElementById("mouse").onmouseover = function(){
+            console.log("鼠标在移动在某元素之上");
+        }
+        document.getElementById("mouse").onmouseout = function(){
+            console.log("鼠标移出");
+        }
+
+        //3.键盘事件
+        // 如果用户按下了一个字符键不放，就会重复触发keydown和keypress事件，直到用户松开该键为止
+        document.getElementById("username").onkeydown = function(){
+            console.log("键盘按下");
+        }
+        document.getElementById("username").onkeypress = function(e){
+            console.log("紧接着keydown事件触发",e);
+            // 通过e.keyCode可以拿到具体键码,e.key是键名
+            //按下回车则提交
+            if(e.keyCode===13){
+                document.querySelector("form").submit();
+                alert("已提交");
+            }
+        }
+        document.getElementById("username").onkeyup = function(){
+            console.log("释放键盘键");
+        }
+
+        // 4.change事件
+        let citys = [
+            [],
+            ["丰岛区","各市区"],
+            ["大连市","沈阳市"],
+            ["吉林市","白城市"]
+        ]
+        document.getElementById("provence").onchange = function(){
+            //alert(this);
+            let value = this.value;
+            //每次变换后清空一下
+            document.getElementById("city").innerHTML = ``;
+            for(let i = 0; i < citys[value].length; i++){
+                // alert(citys[value][i]);
+                document.getElementById("city").innerHTML+=`
+                    <option>${citys[value][i]}</option>
+                `
+            }
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(48, 48, 48);
+            margin: 5px;
+        }
+        span{
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span id="hour">23</span>
+    </div>
+    <div>
+        <span id="minute">23</span>
+    </div>
+    <div>
+        <span id="second">23</span>
+    </div>
+    <script>
+        window.onload = function timeout(){
+            time("2023/10/01");
+            setTimeout(timeout,1000);//每隔一秒触发一次
+        }
+        function time(targetTime){
+            // console.log(new Date().getTime());
+            let time1 = new Date().getTime();
+            let time2 = new Date(targetTime).getTime();
+            let mSec = time2 - time1;
+            console.log(mSec);
+            hour = parseInt((mSec/1000/60/60)%24);
+            document.getElementById("hour").innerHTML=hour;
+            minute = parseInt((mSec/1000/60)%60);
+            document.getElementById("minute").innerHTML=minute;
+            second = parseInt((mSec/1000)%60);
+            document.getElementById("second").innerHTML=second;
+        }
+    </script>
+</body>
+</html>

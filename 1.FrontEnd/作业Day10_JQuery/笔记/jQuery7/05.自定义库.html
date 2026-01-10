@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入自定义库 -->
+    <script src="./1.js"></script>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+        // let div = document.getElementById("div");
+        let div = $func1("div");//使用封装好的函数
+        div.innerHTML = "哈哈";
+    </script>
+</body>
+</html>

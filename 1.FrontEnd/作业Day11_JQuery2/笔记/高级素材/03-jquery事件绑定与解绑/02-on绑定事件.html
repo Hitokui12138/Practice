@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 之前的JS事件绑定用的都是On。。。,但是这种事件绑定不能解除绑定
+        // Jquery的事件 blur()，无参数是注册，有参数是调用
+        // 使用On来注册事件，Off来解绑事件
+        $(function(){
+            // $('#id').click(function(){
+            //     //这种方法不能解绑
+            // })
+            
+            //使用on()方法
+            $('#btn').on("click",function(){
+                alert('单击');
+            })
+            $('#btn').on('dblclick',function(){ //注意是 dbl 中间有个l
+                alert('双击');
+            })
+            $('#btn2').on("click",function(){
+                $('#btn').off('click');//如果无参的话会解绑所有事件
+            })
+        })
+
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="使用on绑定点击事件">
+<input id="btn2" type="button" value="使用off解绑点击事件">
+</body>
+</html>

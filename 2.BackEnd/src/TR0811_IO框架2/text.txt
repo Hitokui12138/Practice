@@ -1,0 +1,30 @@
+10、集合的体系以及区别？
+1.	Collection: 单列结构
+a)	List:有序可重复
+i.	ArrayList:底层由数组实现,线程不安全,遍历效率高
+ii.	LinkedList:由双向链表实现,插入和删除操作快
+iii.	Vector:有数组实现,线程安全,用的少
+b)	Set:不可重复
+i.	HashSet:无序不可重复,由Hash表实现
+ii.	SortSet--->TreeSet:自动对存入的对象进行排序,由二叉树实现
+2.	Map:双列结构,Key是Set,Value是Collection,本身是Entry<Key,Value>
+a)	HashMap:线程不安全.由Hash表实现
+b)	TreeMap:自动对Key排序,
+
+
+11、异常的体系以及区别？
+1.	Throwable
+a)	Error:虚拟机无法解决的错误,JVM内部错误或资源耗尽等
+b)	Exception:可以针对处理的异常
+i.	RuntimeException:运行时异常,应该避免的编程逻辑错误和Bug
+ii.	CheckedException:编译时就要求处理或抛出的异常
+
+12、I/O的体系以及区别？
+1.	抽象基类
+a)	字节流:InputStream,OutputStream
+b)	字符流:Reader,Writer
+2.	访问文件
+3.	缓冲流
+4.	转换流
+5.	对象流
+6.	标准输入输出流

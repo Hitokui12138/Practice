@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        // JS的入口函数只能写一个
+        window.onload = function(){
+            alert("onload");
+        }
+
+        window.onload = function(){
+            alert("onload1");//覆盖前面那个
+        }
+
+        // Jquery的入口函数在JS之 [前] 执行,可以写多个
+        $(document).ready(function(){
+            alert("jquery");
+        })
+        // 一些简略写法
+        jQuery(function($){
+            alert("jquery1");//和前面那个都执行
+        })
+        //通常这样写:
+        $(function(){
+            alert("jquery2");
+        })
+        
+    </script>
+</body>
+</html>

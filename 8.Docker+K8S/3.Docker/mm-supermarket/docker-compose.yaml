@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  db:
+    image: mm-supermarket-db:v1
+    container_name: mm-supermarket-db
+    build:
+      context: "./db"
+      dockerfile: Dockerfile
+    networks:
+      - mm-supermarket
+  server:
+    image: mm-supermarket-server:v1
+    container_name: mm-supermarket-server
+    build:
+      context: "./server"
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    networks:
+      - mm-supermarket
+  web:
+    image: mm-supermarket-web:v1
+    container_name: mm-supermarket-web
+    build:
+      context: "./web"
+      dockerfile: Dockerfile
+    ports:
+    - "80:80"
+    depends_on:
+      - server
+    networks:
+      - mm-supermarket
+networks:
+  mm-supermarket:
+    driver: bridge

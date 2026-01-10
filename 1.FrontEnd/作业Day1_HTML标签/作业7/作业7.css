@@ -1,0 +1,18 @@
+table
+{
+    border: 1px solid #000;
+}
+
+tr
+{
+    border: 1px solid #000;
+    width: 100px;
+    height: 30px;
+}
+
+td
+{
+    border: 1px solid #000;
+    width: 100px;
+    height: 30px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            /* 1. 位移 */
+            /* x轴平移 */
+            transform: translateX(100px);
+            /* 下面这个会覆盖上面那个 */
+            transform: translateY(100px);
+            transform: translate(50%,100px);/* 移动自身宽度的50% */
+            /* 1.1用这个来实现居中 */
+            /* 1.1.1 用绝对定位和top和left,只能实现左上角在中心点, */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 1.1.2 那么再回来50% */
+            transform: translate(-50%,-50%);
+
+            transition: all 1s;
+        }
+
+        div:hover{
+            /* 2.缩放scale,当心这个会覆盖上面的transform */
+            /* 3.倾斜skew X轴是拽着左上和右下横向拉扯 Y轴是拽着左上和右下竖着拉扯*/
+            /* 负数的时候是往反方向拉扯 */
+            transform: translate(-50%,-50%) scale(50%,50%) skew(-20deg,-20deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

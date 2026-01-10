@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JQuery/jquery-3.3.1.min.js"></script>
+    <style>
+        body{
+            background: url('../images/1.jpg') no-repeat;
+           
+        }
+        img{
+            float: left;
+            position: relative;
+            top: 75%;
+            left: 30%;
+            width: 10%;
+            border: 2px solid white;         
+        }
+
+    </style>
+</head>
+<body>
+    <div class="theme">
+        <img src="../images/1.jpg" id="1">
+        <img src="../images/2.jpg" id="2">
+        <img src="../images/3.jpg" id="3">
+        <img src="../images/4.jpg" id="4">
+    </div>
+    <script>
+        document.getElementById("1").onmouseover = function(){
+            console.log("onmouseover");
+            document.body.style.background = "url('../images/1.jpg') no-repeat";
+        }
+        document.getElementById("2").onmouseover = function(){
+            console.log("onmouseover");
+            document.body.style.background = "url('../images/2.jpg') no-repeat";
+        }
+        document.getElementById("3").onmouseover = function(){
+            console.log("onmouseover");
+            document.body.style.background = "url('../images/3.jpg') no-repeat";
+        }
+        document.getElementById("4").onmouseover = function(){
+            console.log("onmouseover");
+            document.body.style.background = "url('../images/4.jpg') no-repeat";
+        }
+    </script>
+</body>
+</html>

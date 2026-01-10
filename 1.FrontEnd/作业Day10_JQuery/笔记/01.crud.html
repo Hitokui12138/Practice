@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通过代码实现添加或删除标签 -->
+    <div id="abc">
+        <p>哈哈</p>
+    </div>
+
+    <button id="del">删除</button>
+    <button id="add">添加</button>
+
+    <script>
+        document.getElementById("del").onclick = function(){
+            // 要先拿到父元素才能删除子元素
+            document.querySelector("body").removeChild(document.querySelector("#abc"));
+        }
+
+        document.getElementById("add").onclick = function(){
+            // 创建一个div标签
+            let div = document.createElement("div");
+            div.setAttribute("id","abc");
+            
+            // 创建一个p标签
+            let p = document.createElement("p");
+            p.appendChild(document.createTextNode("哈哈"));
+
+            // 将div和p关联起来
+            div.appendChild(p);
+            // 再将div和body关联起来
+            // append会加到最下面,因此使用insert
+            //document.querySelector("body").appendChild(div);
+
+            document.querySelector("body").insertBefore(div,document.getElementById("del"));
+        }
+    </script>
+</body>
+</html>

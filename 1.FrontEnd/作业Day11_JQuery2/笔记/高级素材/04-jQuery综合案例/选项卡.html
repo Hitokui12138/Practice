@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    
+    .tab ul {
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+    .tab ul li {
+      box-sizing: border-box;
+      padding: 0;
+      float: left;
+      width: 100px;
+      height: 45px;
+      line-height: 45px;
+      list-style: none;
+      text-align: center;
+      border-top: 1px solid blue;
+      border-right: 1px solid blue;
+    }
+    .tab ul li:first-child {
+      border-left: 1px solid blue;
+    }
+    /* 点击不同的li后，改变类 */
+    .tab ul li.active {
+      background-color: orange;
+    }
+    .tab div {
+      width: 500px;
+      height: 300px;
+      /* 默认隐藏的 */
+      display: none;    
+      text-align: center;
+      font-size: 30px;
+      line-height: 300px;
+      border: 1px solid blue;
+      border-top: 0px;
+    }
+    /*  */
+    .tab div.current {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="tab">
+      <ul>
+        <li class="active">apple</li>
+        <li>orange</li>
+        <li>lemon</li>
+      </ul>
+
+      <div class="current">
+        <img src="./img/apple.png">
+      </div>
+      <div>
+        <img src="./img/orange.png">
+      </div>
+      <div>
+        <img src="./img/lemon.png">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    // 使用排他思想
+    $(function(){
+        $('.tab li').on('click',function(){
+            // index()方法会返回一个索引
+            let index = $('.tab li').index(this);
+            // 去掉 所有的 class，再选中选择的那个设置class
+            // 使用eq之后，包装集里就只剩一个元素了
+            //一定还要理解包装集才能掌握当前有哪些元素
+            $('.tab li').removeClass('active').eq(index).addClass('active');
+            $('.tab div').removeClass('current').eq(index).addClass('current');
+        })
+    })
+  </script>
+</body>
+</html>

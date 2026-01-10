@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 1000px;
+            height: 400px;
+            background-color: blue;
+        }
+        .left{
+            width: 200px;
+            height: 400px;
+            background-color: red;
+            /* float布局 */
+            float: left;
+            /* 加了padding会导致超出1000px */
+            padding: 50px 0px 0px 50px;
+            /* 除了自己算195px之外,可以使用下面的自动计算属性 */
+            /* 默认值是content-box,也就是不会自动计算内外边距等等 */
+            box-sizing: content-box;
+            box-sizing: border-box;/* 自动减去内外边距边框*/
+        }
+        .right{
+            width: 800px;
+            height: 400px;
+            background-color: green;
+            /* 右边的也需要应用float,两个需要同时应用float时才会 */
+            /* 如果一排放不下的话,下面那个就会自动掉到下面去 */
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left">
+            left
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+</body>
+</html>

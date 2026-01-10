@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 1.	打印1-100之间非13的倍数 -->
+	<div>
+		<span id="result"></span>
+	</div>
+	<script>
+		var result = document.getElementById("result");
+		var value = "";
+		for(var i = 1; i <= 100; i++){
+			if(i % 13 != 0){
+				value += i + "<br>";
+			}
+		}
+		result.innerHTML = value;
+	</script>
+	
+</body>
+</html>

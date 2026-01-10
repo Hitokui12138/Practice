@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a[href]{
+            color: red;
+        }
+        [href='http://www.baidu.com']{
+            color: green;
+            text-decoration: none;
+        }
+        /* 以..开头 ^ */
+        [href^='http']{
+            color: yellow;
+            text-decoration: none;
+        }
+        /* 以..结尾 $ */
+        [href$='com']{
+            color: blue;
+            text-decoration: none;
+        }
+        /* 包含 * */
+        [href*='com']{
+            color: darkcyan;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">超链接1</a>
+    <a href="http://www.baidu.com">超链接2</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+@startuml
+class Parent
+class Child
+interface Interface
+class Impl
+class Hotel
+class Room
+
+Parent <|-- Child
+note left of Parent: 1.泛化(继承)
+note bottom: Generalization
+
+Interface <|.. Impl
+note right of Interface: 2. 实现
+note bottom: Realization
+
+
+
+@enduml
+

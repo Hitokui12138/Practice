@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慕慕水果超市</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .fruit {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .fruit img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>欢迎光临慕慕水果超市</h1>
+    </header>
+
+    <div class="container" id="fruit-container">
+        
+    </div>
+    <script>
+        // 获取水果列表的容器
+        const fruitContainer = document.getElementById("fruit-container");
+
+        // 发送 AJAX 请求到后端接口
+        fetch("/api/fruits")
+            .then(response => response.json())
+            .then(data => {
+                // 处理返回的数据并将水果列表显示在页面上
+                data.forEach(fruit => {
+                    const fruitItem = document.createElement("div");
+                    fruitItem.classList.add("fruit");
+
+                    const fruitImage = document.createElement("img");
+                    fruitImage.src = fruit.image;
+                    fruitImage.alt = fruit.name;
+
+                    const fruitInfo = document.createElement("div");
+                    fruitInfo.classList.add("info");
+
+                    const fruitName = document.createElement("h2");
+                    fruitName.textContent = fruit.name;
+
+                    const fruitPrice = document.createElement("p");
+                    fruitPrice.textContent = `价格: ${fruit.price}`;
+
+                    const addToCartButton = document.createElement("button");
+                    addToCartButton.textContent = "添加到购物车";
+
+                    // 将水果信息添加到容器中
+                    fruitInfo.appendChild(fruitName);
+                    fruitInfo.appendChild(fruitPrice);
+
+                    fruitItem.appendChild(fruitImage);
+                    fruitItem.appendChild(fruitInfo);
+                    fruitItem.appendChild(addToCartButton);
+
+                    fruitContainer.appendChild(fruitItem);
+                });
+            })
+            .catch(error => {
+                console.error("发生错误: " + error);
+            });
+    </script>
+</body>
+</html>
