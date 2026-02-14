@@ -1,0 +1,87 @@
+{
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "agents": {
+    "defaults": {
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "workspace": "/Users/peihanggu/.openclaw/workspace",
+      "models": {
+        "minimax/MiniMax-M2.1": {
+          "alias": "Minimax"
+        }
+      },
+      "model": {
+        "primary": "minimax/MiniMax-M2.1"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "__OPENCLAW_REDACTED__"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    }
+  },
+  "auth": {
+    "profiles": {
+      "minimax:default": {
+        "provider": "minimax",
+        "mode": "api_key"
+      }
+    }
+  },
+"models": {
+  "mode": "merge",
+  "providers": {
+    "bailian": {
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "apiKey": "sk-bc134ff134904ea099c02c5b6e5aaa75",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "MiniMax-M2.1",
+          "name": "minimax-m2.1",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 204800,
+          "maxTokens": 32768
+        }
+      ]
+    }
+  }
+},
+"agents": {
+  "defaults": {
+    "model": {
+      "primary": "bailian/MiniMax-M2.1"
+    }
+  }
+},
+  "meta": {
+    "lastTouchedVersion": "2026.2.9",
+    "lastTouchedAt": "2026-02-12T09:00:26.301Z"
+  }
+}
