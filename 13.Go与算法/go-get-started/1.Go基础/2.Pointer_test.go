@@ -7,7 +7,7 @@ import (
 
 func TestPointerMain(t *testing.T) {
 	// 1. 定义普通变量v（储物盒，初始值0）
-	var v int = 0
+	var v = 0
 	fmt.Println("v的初始值：", v) // 输出：v的初始值：0
 	fmt.Println("v的地址：", &v) // 输出：v的地址：0x140000a6200（不同环境地址不同）
 
