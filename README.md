@@ -1,4 +1,4 @@
-# 练习的说明文件
+# 推送给两个库
 - git push origin main
 - git push gitee main
 ## git使用方法
