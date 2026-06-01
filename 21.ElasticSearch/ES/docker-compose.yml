@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  elasticsearch:
+    image: elasticsearch:9.4.1
+    container_name: es
+    pull_policy: never
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    networks:
+      - es-net
+
+  kibana:
+    image: kibana:9.4.1
+    container_name: kibana
+    pull_policy: never
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - es-net
+
+networks:
+  es-net:
+    driver: bridge
