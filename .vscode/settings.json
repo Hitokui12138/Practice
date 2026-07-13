@@ -2,4 +2,11 @@
   "python.pythonPath": "/opt/homebrew/opt/python@3.12/bin/python3.12",
   "python.defaultInterpreterPath": "/opt/homebrew/opt/python@3.12/bin/python3.12",
   "java.compile.nullAnalysis.mode": "disabled",
+  "python-envs.pythonProjects": [
+    {
+      "path": "10.Python/demo",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ],
 }

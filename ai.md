@@ -1,0 +1,1 @@
+((hyena)), ((grey fur, soft white hair)),hyena ears, hyena tail , 5 fingers, 4 toes, pawpads , paws , toe claws, sharp teeth,red eyes ,piercing ,ring piercing ,ear piercing , notched ear ,collarbone ,collar , 8k, anthro , athletic , athletic anthro , athletic male , anthro , young , young anthro ,exhausted, clothed,

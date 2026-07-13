@@ -1,0 +1,36 @@
+head1 {
+    background: #C5BDB9;
+    nose: #757074;
+    nose_top: #34282A;
+    ear: #6D6163;
+    ear_fur: #F0E7D7;
+    spot: #5E5855;
+}
+
+
+hear {
+    A: #8F8D97;
+    B: #C3C6CE;
+    C: #FFFEF8
+}
+
+head2 {
+    background: #A8A1A1;
+    nose: #625958;
+    ear: #716869;
+    /* ear_fur: #F0E7D7; */
+    spot: #5F5558;
+}
+
+body {
+    tommy: #EBD7C3;
+    nipple: #CA8D7D;
+}
+
+other {
+    orange: #D56442;
+
+}
+
+
+
