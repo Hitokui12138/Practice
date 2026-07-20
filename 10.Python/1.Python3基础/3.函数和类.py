@@ -1,3 +1,18 @@
+# 定义一个函数
+def get_sum(p1, p2):
+    result = p1 + p2
+    return result
+# return只能放在末尾,return后面的不执行
+
+
+a = 1
+b = 3
+c = get_sum(a,b)
+print(c)
+
+
+
+# 定义一个类
 class Person:
     #1.构造函数,注意这个构造函数是预定义好的,必须是这样的格式
     '''

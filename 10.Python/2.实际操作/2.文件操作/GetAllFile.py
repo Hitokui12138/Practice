@@ -9,7 +9,8 @@ def find_all_files(root_path):
             all_files.append(os.path.join(dirpath, filenames))
     return all_files
 
-root_path='/Users/peihanggu/GithubLocal/Practice/10.Python'
+root_path='/Users/peihanggu/GithubLocal/Practice/10.Python/1.Python3基础'
+
 files = find_all_files(root_path)
 print("begin")
 for file in files:
