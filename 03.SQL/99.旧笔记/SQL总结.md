@@ -87,7 +87,9 @@
     1. 连续两天的数量/总数
         1. 怎么判断两天连续? 前一个date - 后一个date = 1
         2. 为了让一列的数据进行计算,应该笛卡尔积连接A1B1,A1B2,A1B3
+            - JOIN 自己
         3. 计算每一行的日期差,得到差值为1的就是连续两天
+            - ON datediff(t1.date, t2.date) = 1
 
 ## DROP, DELETE, TRUNCATE
 1. DROP TABLE 表名
